@@ -22,5 +22,5 @@ float area_circle(float r)
 
 float area_triangle(float b, float h)
 {
-	return (div(1, 2) * multf(b, h));
+	return (divi(1, 2) * multf(b, h));
 }

@@ -88,7 +88,7 @@ float triangle(Triangle *_triangle)
 	float res = 0;
 
 	if (is_posf(_triangle->base) && is_posf(_triangle->height)) {
-		res = div(1, 2) * multf(_triangle->base, _triangle->height);
+		res = divi(1, 2) * multf(_triangle->base, _triangle->height);
 	} else {
 		res = 0;
 	}
