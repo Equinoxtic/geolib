@@ -7,6 +7,6 @@ int subn(int x, int y);
 float subf(float x, float y);
 int multn(int x, int y);
 float multf(float x, float y);
-float div(float x, float y);
+float divi(float x, float y);
 
 #endif // GEOSIMPCORE_H_

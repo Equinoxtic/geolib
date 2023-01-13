@@ -30,7 +30,7 @@ float multf(float x, float y)
 	return (x * y);
 }
 
-float div(float x, float y)
+float divi(float x, float y)
 {
 	return (x / y);
 }
