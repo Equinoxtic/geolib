@@ -2,11 +2,12 @@
 #define GEOCORE_H_
 
 #include<stdint.h>
+#include<stdbool.h>
 
-int is_posn(int n);
-int is_posf(float n);
-int is_negn(int n);
-int is_negf(float n);
+bool is_posn(int n);
+bool is_posf(float n);
+bool is_negn(int n);
+bool is_negf(float n);
 int expo_n(int n, uint32_t expo);
 float expo_f(float n, uint32_t pwr);
 float pi();

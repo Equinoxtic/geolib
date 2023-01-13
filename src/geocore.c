@@ -1,38 +1,38 @@
 #include "./geocore.h"
 
-int is_posn(int n)
+bool is_posn(int n)
 {
 	if (n > 0) {
-		return 1; // true
+		return true;
 	} else {
-		return 0; // false
+		return false;
 	}
 }
 
-int is_posf(float n)
+bool is_posf(float n)
 {
 	if (n > 0) {
-		return 1; // true
+		return true;
 	} else {
-		return 0; // false
+		return false;
 	}
 }
 
-int is_negn(int n)
+bool is_negn(int n)
 {
 	if (n < 0) {
-		return 1; // true
+		return true;
 	} else {
-		return 0; // false
+		return false;
 	}
 }
 
-int is_negf(float n)
+bool is_negf(float n)
 {
 	if (n < 0) {
-		return 1; // true
+		return true;
 	} else {
-		return 0; // false
+		return false;
 	}
 }
 
