@@ -1,8 +1,9 @@
-# GeoMath (Geometry Math)
+# GeoLib (Geometric Library)
 
-GeoMath is a math library, aiming to make simplified geometric formulas such as getting an area of a shape
+GeoLib is a math library, aiming to make simplified geometric formulas such as getting an area of a shape
 
 This library also simplifies certain functions that are pre-implemented in C, so take note of that
 
 References:
-
+- Exponentation: https://en.wikipedia.org/wiki/Exponentiation
+- Geometry Formulas: https://www.cuemath.com/geometry-formulas/
