@@ -19,4 +19,10 @@ typedef struct {
 	float s_area;
 } Circle;
 
+typedef struct {
+	float base;
+	float height;
+	float area;
+} Triangle;
+
 #endif // SHAPE_H_

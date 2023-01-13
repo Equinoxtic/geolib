@@ -3,15 +3,24 @@
 
 float area_square(float side)
 {
-	return (expo_f(side, 2));
+	if (is_posf(side) != 0) {
+		return (expo_f(side, 2));
+	}
 }
 
 float area_rect(float l, float w)
 {
-	return (multf(l, w));
+	if (is_posf(l) != 0 && is_posf(w) != 0) {
+		return (multf(l, w));
+	}
 }
 
 float area_circle(float r)
 {
 	return (multf(pi(), expo_f(r, 2)));
+}
+
+float area_triangle(float b, float h)
+{
+	return (div(1, 2) * multf(b, h));
 }
