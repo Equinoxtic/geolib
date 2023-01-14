@@ -1,8 +1,17 @@
+# Flags
+# -DQUICK_TEST
+# -DIODEBUG
+
+CCFLAGS+= -DQUICK_TEST
+
 SRC=src/geocore.c \
 	src/geosimpcore.c \
 	src/geoshape.c \
 	src/sleep.c \
+	src/gio.c \
+	src/stringlib.c \
+	src/testutils.c \
 	src/geomath.c
 
 geolib:
-	gcc test.c -o geolib $(SRC)
+	gcc $(CCFLAGS) -o geolib test.c $(SRC)
