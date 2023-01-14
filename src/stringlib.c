@@ -11,7 +11,7 @@ char* stringlower(char *_str)
 {
 	_str = strdup(_str);
 	for (char *p_str = _str; *p_str; ++p_str)
-		*p_str = toupper(*p_str);
+		*p_str = tolower(*p_str);
 	return _str;
 }
 
@@ -19,7 +19,7 @@ char* stringupper(char *_str)
 {
 	_str = strdup(_str);
 	for (char *p_str = _str; *p_str; ++p_str)
-		*p_str = tolower(*p_str);
+		*p_str = toupper(*p_str);
 	return _str;
 }
 
