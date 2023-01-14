@@ -11,6 +11,7 @@
 #include "./src/gio.h"
 #include "./src/stringlib.h"
 #include "./src/testutils.h"
+#include "./src/libinfo.h"
 
 void multi_operation_test()
 {
@@ -23,8 +24,7 @@ void multi_operation_test()
 			addf	(	55,
 			subf	(	23.5,
 			multf	(	32.12,
-			divi	(	14.2,
-						20.3
+			divi	(	14.2, 20.3
 	)))));
 }
 
@@ -144,9 +144,18 @@ void gio_tests()
 	gput(sp_str, 10);
 
 	printf("\n\n# Print margined text 5 times\n");
-	memset(sp_str, '\0', sizeof(sp_margstr));
+	memset(sp_margstr, '\0', sizeof(sp_margstr));
 	strncpy(sp_margstr, "~\n", sizeof(sp_margstr));
 	gputmarg(p_str, p_margstr, sp_margstr, 5);
+}
+
+void libinfo_test()
+{
+	print_test_header("\"libinfo\" Test");
+
+	printf("\n> %s : %s", get_info_from_string("name"), get_info_from_string("version"));
+	printf("\n[Version] > %s", get_info_from_string("version"));
+	printf("\n[Release] > release-%s\n", get_info_from_string("release"));
 }
 
 int main(int argc, char **argv)
@@ -154,7 +163,7 @@ int main(int argc, char **argv)
 	unsigned def_ms = 0;
 
 	#ifdef QUICK_TEST
-	def_ms = 500;
+	def_ms = 450;
 	#else
 	def_ms = 1250;
 	#endif
@@ -174,6 +183,7 @@ int main(int argc, char **argv)
 	geoshapes_plus_test();		print_test_passed("GeoShapes+");						nsleep(def_ms);
 	stringlib_test();			print_test_passed("StringLib");							nsleep(def_ms);
 	gio_tests();				print_test_passed("gIO Test");							nsleep(def_ms);
+	libinfo_test();				print_test_passed("\"libinfo\" Test");					nsleep(def_ms);
 
 	print_all_test_passed();
 
