@@ -1,5 +1,7 @@
 #include<stdio.h>
+#include<stdlib.h>
 #include<string.h>
+#include "./gfile.h"
 
 char* get_name()
 {
@@ -13,7 +15,10 @@ char* get_version()
 
 char* get_release()
 {
-	// TODO: Implement file library for reading files
+	char* gitfile;
+	gitfile = read_file("gitv.txt");
+	free(gitfile);
+	return read_file("gitv.txt");
 }
 
 char* get_info_from_string(const char* t_info)
@@ -22,6 +27,8 @@ char* get_info_from_string(const char* t_info)
 		return get_name();
 	} else if (strcmp(t_info, "version") == 0) {
 		return get_version();
+	} else if (strcmp(t_info, "release") == 0) {
+		return get_release();
 	}
 }
 
