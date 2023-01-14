@@ -4,7 +4,7 @@
 void print_test_header(const char* s_test)
 {
 	#ifdef IODEBUG
-	printf("\n<%s>\n", s_test);
+	printf("\n> DEBUG TEST: [%s]\n", s_test);
 	#else
 	gputmarg(s_test, "\n<", ">\n", 1);
 	#endif
