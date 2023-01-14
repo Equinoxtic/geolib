@@ -144,7 +144,7 @@ void gio_tests()
 	gput(sp_str, 10);
 
 	printf("\n\n# Print margined text 5 times\n");
-	memset(sp_str, '\0', sizeof(sp_margstr));
+	memset(sp_margstr, '\0', sizeof(sp_margstr));
 	strncpy(sp_margstr, "~\n", sizeof(sp_margstr));
 	gputmarg(p_str, p_margstr, sp_margstr, 5);
 }
@@ -153,10 +153,9 @@ void libinfo_test()
 {
 	print_test_header("\"libinfo\" Test");
 
-	printf("\n> %s : %s", get_info_from_string("name"), 
-						  get_info_from_string("version"));
-	printf("\n[Version] > %s\n", get_info_from_string("version"));
-	// printf("\n[Release] > %s\n", get_info_from_string("release"));
+	printf("\n> %s : %s", get_info_from_string("name"), get_info_from_string("version"));
+	printf("\n[Version] > %s", get_info_from_string("version"));
+	printf("\n[Release] > release-%s\n", get_info_from_string("release"));
 }
 
 int main(int argc, char **argv)

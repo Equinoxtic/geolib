@@ -8,6 +8,7 @@ SRC=	src/geocore.c 			\
 		src/geosimpcore.c 		\
 		src/geoshape.c 			\
 		src/sleep.c 			\
+		src/gfile.c				\
 		src/gio.c 				\
 		src/stringlib.c 		\
 		src/testutils.c 		\
