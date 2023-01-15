@@ -131,22 +131,24 @@ void stringlib_test()
 
 void gio_tests()
 {
-	const char* p_str = "Lorem Ipsum dolor sit amet";
+	char p_str[64];
 	char sp_str[32];
-	const char* p_margstr = "~";
-	char sp_margstr[2];
 
 	print_test_header("gIO Test");
 	
 	printf("\n# Print text 10 times\n");
+	
 	memset(sp_str, '\0', sizeof(sp_str));
-	strncpy(sp_str, "Lorem Ipsum dolor sit amet\n", sizeof(sp_str));
+	
+	strcpy(p_str, "Lorem Ipsum dolor sit amet\n");
+	strncpy(sp_str, p_str, sizeof(sp_str));
 	gput(sp_str, 10);
 
-	printf("\n\n# Print margined text 5 times\n");
-	memset(sp_margstr, '\0', sizeof(sp_margstr));
-	strncpy(sp_margstr, "~\n", sizeof(sp_margstr));
-	gputmarg(p_str, p_margstr, sp_margstr, 5);
+	printf("\n# Print margined text 5 times\n");
+	
+	strcpy(p_str, "Lorem Ipsum dolor sit amet");
+	strncpy(sp_str, p_str, sizeof(sp_str));
+	gputmarg(p_str, "~", "~\n", 5);
 }
 
 void libinfo_test()
