@@ -13,6 +13,7 @@ SRC=	src/geocore.c 			\
 		src/stringlib.c 		\
 		src/testutils.c 		\
 		src/libinfo.c 			\
+		src/cligui.c			\
 		src/geomath.c
 
 geolib:
