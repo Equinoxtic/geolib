@@ -12,6 +12,7 @@
 #include "./src/stringlib.h"
 #include "./src/testutils.h"
 #include "./src/libinfo.h"
+#include "./src/cligui.h"
 
 void multi_operation_test()
 {
@@ -79,12 +80,18 @@ void neg_and_pos_test(float val)
 	if (is_posf(val))
 	{
 		printf("\n# Positive Outputs\n");
-		printf("\n> %g\n> %g\n> %g\n", pi(), multf(2.5, 7.35), area_circle(4));
+		// printf("\n> %g\n> %g\n> %g\n", pi(), multf(2.5, 7.35), area_circle(4));
+		cltext_f("Pi", pi(), 0);
+		cltext_f("Product", multf(2.35, 4.35), 0);
+		cltext_f("Circle", area_circle(6), 1);
 	}
 	else
 	{
 		printf("\n# Negative Outputs\n");
-		printf("\n> %g\n> %g\n> %g\n", multf(1.75, 4.63), area_triangle(12.2, 5.43), multf(pi(), 4));
+		// printf("\n> %g\n> %g\n> %g\n", multf(1.75, 4.63), area_triangle(12.2, 5.43), multf(pi(), 4));
+		cltext_f("Product", multf(2.25, 5.32), 0);
+		cltext_f("Triangle", area_triangle(13.4, 7.32), 0);
+		cltext_f("Square", area_square(16), 1);
 	}
 }
 
@@ -132,22 +139,17 @@ void stringlib_test()
 void gio_tests()
 {
 	char p_str[64];
-	char sp_str[32];
 
 	print_test_header("gIO Test");
 	
 	printf("\n# Print text 10 times\n");
 	
-	memset(sp_str, '\0', sizeof(sp_str));
-	
-	strcpy(p_str, "Lorem Ipsum dolor sit amet\n");
-	strncpy(sp_str, p_str, sizeof(sp_str));
-	gput(sp_str, 10);
+	memmove(p_str, "Lorem Ipsum dolor sit amet\n", sizeof(p_str));
+	gput(p_str, 10);
 
 	printf("\n# Print margined text 5 times\n");
 	
-	strcpy(p_str, "Lorem Ipsum dolor sit amet");
-	strncpy(sp_str, p_str, sizeof(sp_str));
+	memmove(p_str, "Lorem Ipsum dolor sit amet", sizeof(p_str));
 	gputmarg(p_str, "~", "~\n", 5);
 }
 
@@ -157,7 +159,15 @@ void libinfo_test()
 
 	printf("\n> %s : %s", get_info_from_string("name"), get_info_from_string("version"));
 	printf("\n[Version] > %s", get_info_from_string("version"));
-	printf("\n[Release] > release-%s\n", get_info_from_string("release"));
+	printf("\n[Release] > release-%s", get_info_from_string("release"));
+}
+
+void cligui_test()
+{
+	header_create("Test header small", 1);
+	header_create("Test header big", 0);
+	cltext_f("Float", 2.3f, 0);
+	cltext_s("String", "Hello, World!", 1);
 }
 
 int main(int argc, char **argv)
@@ -186,6 +196,7 @@ int main(int argc, char **argv)
 	stringlib_test();			print_test_passed("StringLib");							nsleep(def_ms);
 	gio_tests();				print_test_passed("gIO Test");							nsleep(def_ms);
 	libinfo_test();				print_test_passed("\"libinfo\" Test");					nsleep(def_ms);
+	cligui_test();				print_test_passed("Command Line GUI Test");				nsleep(def_ms);
 
 	print_all_test_passed();
 

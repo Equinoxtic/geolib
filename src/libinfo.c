@@ -17,8 +17,7 @@ char* get_release()
 {
 	char* gitfile;
 	gitfile = read_file("gitv.txt");
-	free(gitfile);
-	return read_file("gitv.txt");
+	return gitfile; free(gitfile);
 }
 
 char* get_info_from_string(const char* t_info)
