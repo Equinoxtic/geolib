@@ -1,8 +1,7 @@
 # GeoLib Changelog
 
-Version: v0.32
+Version: v0.4 - 3D Shapes
 
-* Implemented new library - `cligui`
-* Some bug fixes for `libinfo` and `stringlib`
-* Added Changelog file in `docs` directory
+* Updated libraries for 3D Shapes!
+	- New library included: `depshape.h`
 
