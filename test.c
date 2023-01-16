@@ -144,12 +144,12 @@ void gio_tests()
 	
 	printf("\n# Print text 10 times\n");
 	
-	memmove(p_str, "Lorem Ipsum dolor sit amet\n", sizeof(p_str));
+	strncpy(p_str, "Lorem Ipsum dolor sit amet\n", sizeof(p_str));
 	gput(p_str, 10);
 
 	printf("\n# Print margined text 5 times\n");
 	
-	memmove(p_str, "Lorem Ipsum dolor sit amet", sizeof(p_str));
+	strncpy(p_str, "Lorem Ipsum dolor sit amet", sizeof(p_str));
 	gputmarg(p_str, "~", "~\n", 5);
 }
 
@@ -168,6 +168,11 @@ void cligui_test()
 	header_create("Test header big", 0);
 	cltext_f("Float", 2.3f, 0);
 	cltext_s("String", "Hello, World!", 1);
+}
+
+void threed_shapes_test()
+{
+	// TODO: Finish 3D Shapes and test
 }
 
 int main(int argc, char **argv)
