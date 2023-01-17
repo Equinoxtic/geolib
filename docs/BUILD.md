@@ -29,7 +29,10 @@ $ ./build/geolib.o
 
 ## Automatic setup
 
-To simply automatically setup and run, just run ``./setup.sh`` in your terminal
+```sh
+$ ./setup.sh # Creates the "build" directory for you
+$ ./build/geolib.o # Run it and done! :D
+```
 
 ---
 
