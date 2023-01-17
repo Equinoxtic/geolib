@@ -1,20 +1,19 @@
 # Flags
 # -DQUICK_TEST
 # -DIODEBUG
-
-CCFLAGS+= -DQUICK_TEST
-
-SRC=	src/geocore.c 			\
-		src/geosimpcore.c 		\
-		src/geoshape.c 			\
-		src/sleep.c 			\
-		src/gfile.c				\
-		src/gio.c 				\
-		src/stringlib.c 		\
-		src/testutils.c 		\
-		src/libinfo.c 			\
-		src/cligui.c			\
-		src/geomath.c
-
+GCC = gcc
+SRCDIR = src
+SRC =	$(SRCDIR)/geocore.c 			\
+		$(SRCDIR)/geosimpcore.c 		\
+		$(SRCDIR)/geoshape.c 			\
+		$(SRCDIR)/sleep.c 				\
+		$(SRCDIR)/gfile.c				\
+		$(SRCDIR)/gio.c 				\
+		$(SRCDIR)/stringlib.c 			\
+		$(SRCDIR)/testutils.c 			\
+		$(SRCDIR)/libinfo.c 			\
+		$(SRCDIR)/cligui.c				\
+		$(SRCDIR)/geomath.c
+CCFLAGS= -DQUICK_TEST
 geolib:
-	gcc $(CCFLAGS) -o geolib test.c $(SRC)
+	$(GCC) $(CCFLAGS) -o build/geolib.o test.c $(SRC) 

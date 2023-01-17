@@ -80,7 +80,6 @@ void neg_and_pos_test(float val)
 	if (is_posf(val))
 	{
 		printf("\n# Positive Outputs\n");
-		// printf("\n> %g\n> %g\n> %g\n", pi(), multf(2.5, 7.35), area_circle(4));
 		cltext_f("Pi", pi(), 0);
 		cltext_f("Product", multf(2.35, 4.35), 0);
 		cltext_f("Circle", area_circle(6), 1);
@@ -88,7 +87,6 @@ void neg_and_pos_test(float val)
 	else
 	{
 		printf("\n# Negative Outputs\n");
-		// printf("\n> %g\n> %g\n> %g\n", multf(1.75, 4.63), area_triangle(12.2, 5.43), multf(pi(), 4));
 		cltext_f("Product", multf(2.25, 5.32), 0);
 		cltext_f("Triangle", area_triangle(13.4, 7.32), 0);
 		cltext_f("Square", area_square(16), 1);
@@ -141,15 +139,13 @@ void gio_tests()
 	char p_str[64];
 
 	print_test_header("gIO Test");
-	
+
 	printf("\n# Print text 10 times\n");
-	
-	memmove(p_str, "Lorem Ipsum dolor sit amet\n", sizeof(p_str));
+	strncpy(p_str, "Lorem Ipsum dolor sit amet\n", sizeof(p_str));
 	gput(p_str, 10);
 
 	printf("\n# Print margined text 5 times\n");
-	
-	memmove(p_str, "Lorem Ipsum dolor sit amet", sizeof(p_str));
+	strncpy(p_str, "Lorem Ipsum dolor sit amet", sizeof(p_str));
 	gputmarg(p_str, "~", "~\n", 5);
 }
 
@@ -168,6 +164,11 @@ void cligui_test()
 	header_create("Test header big", 0);
 	cltext_f("Float", 2.3f, 0);
 	cltext_s("String", "Hello, World!", 1);
+}
+
+void threed_shapes_test()
+{
+	// TODO: Finish 3D Shapes and test
 }
 
 int main(int argc, char **argv)
