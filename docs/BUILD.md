@@ -17,11 +17,20 @@ $ git clone https://github.com/Equinoxtic/geolib
 $ cd geolib
 ```
 
-Compile the project with ``make`` and run it like this
+## Manual setup
+
+Create a directory called `build` and compile the project with ``make`` and run it like this
 
 ```sh
-$ make
-$ ./geolib
+$ mkdir build
+$ make -s
+$ ./build/geolib.o
 ```
+
+## Automatic setup
+
+To simply automatically setup and run, just run ``./setup.sh`` in your terminal
+
+---
 
 And you're pretty much done!
