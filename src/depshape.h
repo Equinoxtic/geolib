@@ -23,4 +23,14 @@ typedef struct {
 	float diag;
 } DEP_Rectangle;
 
+typedef struct {
+	float _side_a;
+	float _side_b;
+	float _paralg_height;
+	float perim;
+	float area;
+	float height;
+	float base;
+} Parallelogram;
+
 #endif // DEPSHAPE_H_

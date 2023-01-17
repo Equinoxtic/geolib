@@ -74,3 +74,24 @@ float diag_dep_rect(float l, float w) {
 	if (is_posf(l) && is_posf(w))
 		return (gsqrt(addf(expo_f(l, 2), expo_f(w, 2))));
 }
+
+float perim_paralgram(float a, float b) {
+	if (is_posf(a) && is_posf(b))
+		return (multf(2, addf(a, b)));
+}
+
+float area_paralgram(float b, float h) {
+	if (is_posf(b) && is_posf(h))
+		return (multf(b, h));
+}
+
+float height_paralgram(float area, float b) {
+	if (is_posf(area) && is_posf(b))
+		return (divi(area, b));
+}
+
+
+float base_paralgram(float area, float h) {
+	if (is_posf(area) && is_posf(h))
+		return (divi(area, h));
+}

@@ -28,7 +28,7 @@ float dep_triangle_perim(DEP_Triangle *dtriangle);
 float dep_triangle_area(DEP_Triangle *dtriangle);
 float dep_triangle_height(DEP_Triangle *dtriangle);
 
-void set_dep_rectangle(DEP_Rectangle,
+void set_dep_rectangle(DEP_Rectangle *drect,
 					   float length,
 					   float width);
 float dep_rectangle_perim(DEP_Rectangle *drect);

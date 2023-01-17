@@ -238,7 +238,7 @@ float dep_rectangle_area(DEP_Rectangle *drect)
 	float res = 0;
 
 	if (is_posf(drect->length) && is_posf(drect->width))
-		res = perim_dep_area(drect->length, drect->width);
+		res = area_dep_rect(drect->length, drect->width);
 
 	drect->area = res;
 
@@ -250,7 +250,7 @@ float dep_rectangle_diag(DEP_Rectangle *drect)
 	float res = 0;
 
 	if (is_posf(drect->length) && is_posf(drect->width))
-		res = perim_dep_diag(drect->length, drect->width);
+		res = diag_dep_rect(drect->length, drect->width);
 
 	drect->diag = res;
 
