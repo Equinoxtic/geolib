@@ -30,7 +30,7 @@ $ ./build/geolib.o
 ## Automatic setup
 
 ```sh
-$ ./setup.sh # Creates the "build" directory for you and runs the "make -s" command for you
+$ ./setup.sh # Creates the "build" directory and runs the "make -s" command for you
 $ ./build/geolib.o # Done! :D
 ```
 
