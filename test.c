@@ -139,14 +139,12 @@ void gio_tests()
 	char p_str[64];
 
 	print_test_header("gIO Test");
-	
-	printf("\n# Print text 10 times\n");
 
+	printf("\n# Print text 10 times\n");
 	strncpy(p_str, "Lorem Ipsum dolor sit amet\n", sizeof(p_str));
 	gput(p_str, 10);
 
 	printf("\n# Print margined text 5 times\n");
-	
 	strncpy(p_str, "Lorem Ipsum dolor sit amet", sizeof(p_str));
 	gputmarg(p_str, "~", "~\n", 5);
 }
