@@ -95,3 +95,21 @@ float base_paralgram(float area, float h) {
 	if (is_posf(area) && is_posf(h))
 		return (divi(area, h));
 }
+
+float area_cube(float a) {
+	if (is_posf(a)) return (multf(6, expo_f(a, 2)));
+}
+
+float volume_cube(float a) {
+	if (is_posf(a)) return (expo_f(a, 3));
+}
+
+float edge_cube(float volume) {
+	if (is_posf(volume))
+		return (multf(volume, divi(1, 3)));
+}
+
+float sdiag_cube(float a) {
+	if (is_posf(a))
+		return (multf(a, gsqrt(3)));
+}

@@ -181,6 +181,30 @@ void set_dep_rectangle(DEP_Rectangle *drect,
 	}
 }
 
+void set_parallelg(Parallelogram *parallg,
+					float side_a,
+					float side_b,
+					float para_height)
+{
+	if (is_posf(side_a) && is_posf(side_b) && is_posf(para_height))
+	{
+		parallg->_side_a = side_a;
+		parallg->_side_b = side_b;
+		parallg->_paralg_height = para_height;
+	}
+}
+
+void set_cube(Cube *cube,
+			  float side,
+			  float volume)
+{
+	if (is_posf(side) && is_posf(volume))
+	{
+		cube->side = side;
+		cube->volume = volume;
+	}
+}
+
 float dep_triangle_perim(DEP_Triangle *dtriangle)
 {
 	float res = 0;
@@ -210,7 +234,12 @@ float dep_triangle_height(DEP_Triangle *dtriangle)
 	float res = 0;
 	float new_area = 0;
 
-	if (dtriangle->area == 0) new_area = area_dep_triangle(dtriangle->alti, dtriangle->base);
+	if (is_posf(dtriangle->area) && is_posf(dtriangle->alti) && is_posf(dtriangle->base)) {
+		if (dtriangle->area == 0)
+			new_area = area_dep_triangle(dtriangle->alti, dtriangle->height);
+		else
+			new_area = area_dep_triangle(dtriangle->alti, dtriangle->height);
+	}
 
 	if (is_posf(new_area) && is_posf(dtriangle->base))
 		res = height_dep_triangle(new_area, dtriangle->base);
@@ -257,3 +286,112 @@ float dep_rectangle_diag(DEP_Rectangle *drect)
 	return res;
 }
 
+float parallelg_perim(Parallelogram *parallg)
+{
+	float res = 0;
+	
+	if (is_posf(parallg->_side_a) && is_posf(parallg->_side_b))
+		res = perim_paralgram(parallg->_side_a, parallg->_side_b);
+
+	parallg->perim = res;
+
+	return res;
+}
+
+float parallelg_area(Parallelogram *parallg)
+{
+	float res = 0;
+
+	if (is_posf(parallg->base) && is_posf(parallg->height))
+		res = area_paralgram(parallg->base, parallg->height);
+
+	parallg->area = res;
+
+	return res;
+}
+
+float parallelg_height(Parallelogram *parallg)
+{
+	float res = 0;
+	float new_area = 0;
+	if (is_posf(parallg->area) && is_posf(parallg->base) && is_posf(parallg->height)) {
+		if (parallg->area == 0)
+			new_area = area_paralgram(parallg->base, parallg->height);
+		else
+			new_area = area_paralgram(parallg->base, parallg->height);
+	}
+	
+	if (is_posf(new_area) && is_posf(parallg->base))
+		res = height_paralgram(new_area, parallg->base);
+
+	parallg->height = res;
+
+	return res;
+}
+
+float parallelg_base(Parallelogram *parallg)
+{
+	float res = 0;
+	float new_area = 0;
+	if (is_posf(parallg->area) && is_posf(parallg->base) && is_posf(parallg->height)) {
+		if (parallg->area == 0)
+			new_area = area_paralgram(parallg->base, parallg->height);
+		else
+			new_area = area_paralgram(parallg->base, parallg->height);
+	}
+
+	if (is_posf(new_area) && is_posf(parallg->height))
+		res = base_paralgram(new_area, parallg->height);
+
+	parallg->base = res;
+
+	return res;
+}
+
+float cube_area(Cube *cube)
+{
+	float res = 0;
+
+	if (is_posf(cube->side))
+		res = area_cube(cube->side);
+
+	cube->base = res;
+	
+	return res;
+}
+
+float cube_volume(Cube *cube)
+{
+	float res = 0;
+	
+	if (is_posf(cube->side))
+		res = volume_cube(cube->side);
+	
+	cube->volume = res;
+	
+	return res;
+}
+
+float cube_edge(Cube *cube)
+{
+	float res = 0;
+	
+	if (is_posf(cube->volume))
+		res = edge_cube(cube->volume);
+	
+	cube->side = res;
+	
+	return res;
+}
+
+float cube_sdiag(Cube *cube)
+{
+	float res = 0;
+	
+	if (is_posf(cube->side))
+		res = sdiag_cube(cube->side);
+	
+	cube->side = res;
+	
+	return res;
+}

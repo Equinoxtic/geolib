@@ -33,4 +33,12 @@ typedef struct {
 	float base;
 } Parallelogram;
 
+typedef struct {
+	float side;
+	float area;
+	float volume;
+	float edge;
+	float s_diag;
+} Cube;
+
 #endif // DEPSHAPE_H_

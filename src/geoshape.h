@@ -35,4 +35,21 @@ float dep_rectangle_perim(DEP_Rectangle *drect);
 float dep_rectangle_area(DEP_Rectangle *drect);
 float dep_rectangle_diag(DEP_Rectangle *drect);
 
+void set_parallelg(Parallelogram *parallg,
+					float side_a,
+					float side_b,
+					float para_height);
+float parallelg_perim(Parallelogram *parallg);
+float parallelg_area(Parallelogram *parallg);
+float parallelg_height(Parallelogram *parallg);
+float parallelg_base(Parallelogram *parallg);
+
+void set_cube(Cube *cube,
+			  float side,
+			  float volume);
+float cube_area(Cube *cube);
+float cube_volume(Cube *cube);
+float cube_edge(Cube *cube);
+float cube_sdiag(Cube *cube);
+
 #endif // GEOSHAPE_H_
