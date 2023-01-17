@@ -4,6 +4,12 @@
 #include "./geocore.h"
 #include "./geosimpcore.h"
 
+
+
+// --------------------------------------------
+
+
+
 void set_square(Square *_square, 
 				float n_side)
 {
@@ -144,3 +150,110 @@ float trapezoid(Trapezoid *_trapezoid)
 
 	return res;
 }
+
+
+
+// --------------------------------------------
+
+
+
+void set_dep_triangle(DEP_Triangle *dtriangle,
+					  float altitude,
+					  float hypotenuse,
+					  float base)
+{
+	if (is_posf(altitude) && is_posf(hypotenuse) && is_posf(base))
+	{
+		dtriangle->alti = altitude;
+		dtriangle->hypo = hypotenuse;
+		dtriangle->base = base;
+	}
+}
+
+void set_dep_rectangle(DEP_Rectangle *drect,
+					   float length,
+					   float width)
+{
+	if (is_posf(length) && is_posf(width))
+	{
+		drect->length = length;
+		drect->width = width;
+	}
+}
+
+float dep_triangle_perim(DEP_Triangle *dtriangle)
+{
+	float res = 0;
+
+	if (is_posf(dtriangle->alti) && is_posf(dtriangle->hypo) && is_posf(dtriangle->base))
+		res = perim_dep_triangle(dtriangle->alti, dtriangle->hypo, dtriangle->base);
+
+	dtriangle->perim = res;
+
+	return res;
+}
+
+float dep_triangle_area(DEP_Triangle *dtriangle)
+{
+	float res = 0;
+
+	if (is_posf(dtriangle->alti) && is_posf(dtriangle->base))
+		res = area_dep_triangle(dtriangle->alti, dtriangle->base);
+
+	dtriangle->area = res;
+
+	return res;
+}
+
+float dep_triangle_height(DEP_Triangle *dtriangle)
+{
+	float res = 0;
+	float new_area = 0;
+
+	if (dtriangle->area == 0) new_area = area_dep_triangle(dtriangle->alti, dtriangle->base);
+
+	if (is_posf(new_area) && is_posf(dtriangle->base))
+		res = height_dep_triangle(new_area, dtriangle->base);
+
+	dtriangle->height = res;
+
+	return res;
+}
+
+
+float dep_rectangle_perim(DEP_Rectangle *drect)
+{
+	float res = 0;
+
+	if (is_posf(drect->length) && is_posf(drect->width))
+		res = perim_dep_rect(drect->length, drect->width);
+
+	drect->perim = res;
+
+	return res;
+}
+
+float dep_rectangle_area(DEP_Rectangle *drect)
+{
+	float res = 0;
+
+	if (is_posf(drect->length) && is_posf(drect->width))
+		res = perim_dep_area(drect->length, drect->width);
+
+	drect->area = res;
+
+	return res;
+}
+
+float dep_rectangle_diag(DEP_Rectangle *drect)
+{
+	float res = 0;
+
+	if (is_posf(drect->length) && is_posf(drect->width))
+		res = perim_dep_diag(drect->length, drect->width);
+
+	drect->diag = res;
+
+	return res;
+}
+
