@@ -1,5 +1,6 @@
 #include "./geocore.h"
 #include "./geosimpcore.h"
+#include<math.h>
 
 // Shapes (Regular)
 float area_square(float side) {
@@ -72,7 +73,7 @@ float area_dep_rect(float l, float w) {
 
 float diag_dep_rect(float l, float w) {
 	if (is_posf(l) && is_posf(w))
-		return (gsqrt(addf(expo_f(l, 2), expo_f(w, 2))));
+		return (sqrt(addf(expo_f(l, 2), expo_f(w, 2))));
 }
 
 float perim_paralgram(float a, float b) {
@@ -111,5 +112,5 @@ float edge_cube(float volume) {
 
 float sdiag_cube(float a) {
 	if (is_posf(a))
-		return (multf(a, gsqrt(3)));
+		return (multf(a, sqrt(3)));
 }

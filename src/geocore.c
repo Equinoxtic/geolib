@@ -67,6 +67,7 @@ double pi_d()
 	return 3.14159265359;
 }
 
+/* Deprecated, use regular sqrt instead
 float gsqrt(float n)
 {
 	float l = 0,
@@ -81,4 +82,4 @@ float gsqrt(float n)
 	
 	return m;
 }
-
+*/
