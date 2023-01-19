@@ -10,7 +10,9 @@ char* get_name()
 
 char* get_version()
 {
-	return "v0.3";
+	char* gitf;
+	gitf = read_file("gitv.txt");
+	return gitf; free(gitf);
 }
 
 char* get_release()
