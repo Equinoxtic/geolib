@@ -18,7 +18,7 @@
 
 GCC = gcc
 
-SRCDIR = src
+SRCDIR = src/include/
 
 SRC =	$(SRCDIR)/geocore.c 			\
 		$(SRCDIR)/geosimpcore.c 		\
@@ -32,7 +32,7 @@ SRC =	$(SRCDIR)/geocore.c 			\
 		$(SRCDIR)/cligui.c				\
 		$(SRCDIR)/geomath.c
 
-CCFLAGS= -DQUICK_TEST -DTEST_INFOLIB
+CCFLAGS= -DQUICK_TEST -DTEST_MULTIOPERATION -DTEST_GEOMFORMS -DTEST_GEOSHAPES -DTEST_NEGANDPOS -DTEST_SLEEP -DTEST_GEOMFORMP -DTESTGEOSHAPEP -DTEST_LIBSTRING -DTEST_GIO -DTEST_INFOLIB -DTEST_CLIGUI -DTEST_DEPSHAPES
 
 geolib:
-	$(GCC) $(CCFLAGS) -o build/geolib.o test.c $(SRC) 
+	$(GCC) $(CCFLAGS) -o build/geolib.o test.c $(SRCDIR) 
