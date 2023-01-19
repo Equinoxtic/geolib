@@ -107,7 +107,7 @@ float volume_cube(float a) {
 
 float edge_cube(float volume) {
 	if (is_posf(volume))
-		return (multf(volume, divi(1, 3)));
+		return (pow(volume, divi(3, 4)));
 }
 
 float sdiag_cube(float a) {

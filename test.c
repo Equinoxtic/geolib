@@ -153,10 +153,9 @@ void gio_tests()
 void libinfo_test()
 {
 	print_test_header("\"libinfo\" Test");
-
 	printf("\n> %s : %s", get_info_from_string("name"), get_info_from_string("version"));
-	printf("\n[Version] > %s", get_info_from_string("version"));
-	printf("\n[Release] > release-%s", get_info_from_string("release"));
+	printf("[Version] > %s", get_info_from_string("version"));
+	printf("[Release] > release-%s", get_info_from_string("release"));
 }
 
 void cligui_test()
@@ -178,7 +177,7 @@ void dep_shapes_test()
 	print_test_header("DEP (3D) Shapes Test");
 
 	// Cube
-	set_cube(&cube, 4, 7);
+	set_cube(&cube, 4, 43);
 
 	// Triangle
 	
@@ -210,19 +209,32 @@ int main(int argc, char **argv)
 
 	printf("\n> Running tests...\n");
 	
+	#ifdef TEST_MULTIOPERATION
 	multi_operation_test();		print_test_passed("Simple Operation Test");				nsleep(def_ms);
+	#elif TEST_GEOMFORMS
 	geom_formulas_test();		print_test_passed("Geometric Formulas");				nsleep(def_ms);
+	#elif TEST_GEOSHAPES
 	geoshapes_test();			print_test_passed("GeoShapes Test");					nsleep(def_ms);
+	#elif TEST_NEGANDPOS
 	neg_and_pos_test(2.3f);		print_test_passed("Negative and Positive outputs");		nsleep(def_ms);
+	#elif TEST_SLEEP
 	sleep_stress_test();		print_test_passed("Sleep Stress");						nsleep(def_ms);
+	#elif TEST_GEOMFORMP
 	geomformula_plus_test();	print_test_passed("Geometric Formulas+");				nsleep(def_ms);
+	#elif TEST_GEOSHAPEP
 	geoshapes_plus_test();		print_test_passed("GeoShapes+");						nsleep(def_ms);
+	#elif TEST_LIBSTRING
 	stringlib_test();			print_test_passed("StringLib");							nsleep(def_ms);
+	#elif TEST_GIO
 	gio_tests();				print_test_passed("gIO Test");							nsleep(def_ms);
+	#elif TEST_INFOLIB
 	libinfo_test();				print_test_passed("\"libinfo\" Test");					nsleep(def_ms);
+	#elif TEST_CLIGUI
 	cligui_test();				print_test_passed("Command Line GUI Test");				nsleep(def_ms);
+	#elif TEST_DEPSHAPES
 	dep_shapes_test();			print_test_passed("DEP / 3D Shapes Test");				nsleep(def_ms);
-
+	#endif
+	
 	print_all_test_passed();
 
 	return 0;

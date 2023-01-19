@@ -355,7 +355,7 @@ float cube_area(Cube *cube)
 	if (is_posf(cube->side))
 		res = area_cube(cube->side);
 
-	cube->base = res;
+	cube->area = res;
 	
 	return res;
 }
