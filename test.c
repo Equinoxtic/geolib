@@ -2,18 +2,18 @@
 #include<stdlib.h>
 #include<string.h>
 
-#include "src/include/shape.h"
-#include "src/include/geomath.h"
-#include "src/include/geoshape.h"
-#include "src/include/geocore.h"
-#include "src/include/geosimpcore.h"
-#include "src/include/sleep.h"
-#include "src/include/gio.h"
-#include "src/include/stringlib.h"
-#include "src/include/testutils.h"
-#include "src/include/libinfo.h"
-#include "src/include/cligui.h"
-#include "src/include/depshape.h"
+#include "src/geolib/shape.h"
+#include "src/geolib/geomath.h"
+#include "src/geolib/geoshape.h"
+#include "src/geolib/geocore.h"
+#include "src/geolib/geosimpcore.h"
+#include "src/geolib/sleep.h"
+#include "src/geolib/gio.h"
+#include "src/geolib/stringlib.h"
+#include "src/geolib/testutils.h"
+#include "src/geolib/libinfo.h"
+#include "src/geolib/cligui.h"
+#include "src/geolib/depshape.h"
 
 void multi_operation_test()
 {
