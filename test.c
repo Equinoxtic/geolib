@@ -13,6 +13,7 @@
 #include "./src/testutils.h"
 #include "./src/libinfo.h"
 #include "./src/cligui.h"
+#include "./src/depshape.h"
 
 void multi_operation_test()
 {
@@ -140,11 +141,11 @@ void gio_tests()
 
 	print_test_header("gIO Test");
 
-	printf("\n# Print text 10 times\n");
+	print_test_subheader("Print text 10 times");
 	strncpy(p_str, "Lorem Ipsum dolor sit amet\n", sizeof(p_str));
 	gput(p_str, 10);
 
-	printf("\n# Print margined text 5 times\n");
+	print_test_subheader("Print margined text 5 times");
 	strncpy(p_str, "Lorem Ipsum dolor sit amet", sizeof(p_str));
 	gputmarg(p_str, "~", "~\n", 5);
 }
@@ -160,15 +161,37 @@ void libinfo_test()
 
 void cligui_test()
 {
+	print_test_header("\"CLIgui\" API Test");
 	header_create("Test header small", 1);
 	header_create("Test header big", 0);
 	cltext_f("Float", 2.3f, 0);
 	cltext_s("String", "Hello, World!", 1);
 }
 
-void threed_shapes_test()
+void dep_shapes_test()
 {
-	// TODO: Finish 3D Shapes and test
+	Cube cube;
+	DEP_Triangle tri;
+	DEP_Rectangle rect;
+	Parallelogram para;
+
+	print_test_header("DEP (3D) Shapes Test");
+
+	// Cube
+	set_cube(&cube, 4, 7);
+
+	// Triangle
+	
+	// Rectangle
+	set_dep_rectangle(&rect, 15, 10);
+
+	// Parallelogram
+	
+	print_test_subheader("Cube");
+	cltext_f("Area", cube_area(&cube), 0);
+	cltext_f("Volume", cube_volume(&cube), 0);
+	cltext_f("Edge", cube_edge(&cube), 0);
+	cltext_f("Space Diagonal", cube_sdiag(&cube), 1);
 }
 
 int main(int argc, char **argv)
@@ -198,6 +221,7 @@ int main(int argc, char **argv)
 	gio_tests();				print_test_passed("gIO Test");							nsleep(def_ms);
 	libinfo_test();				print_test_passed("\"libinfo\" Test");					nsleep(def_ms);
 	cligui_test();				print_test_passed("Command Line GUI Test");				nsleep(def_ms);
+	dep_shapes_test();			print_test_passed("DEP / 3D Shapes Test");				nsleep(def_ms);
 
 	print_all_test_passed();
 
