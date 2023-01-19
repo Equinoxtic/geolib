@@ -2,42 +2,42 @@
 #include<stdlib.h>
 #include<string.h>
 
-#include "./src/shape.h"
-#include "./src/geomath.h"
-#include "./src/geoshape.h"
-#include "./src/geocore.h"
-#include "./src/geosimpcore.h"
-#include "./src/sleep.h"
-#include "./src/gio.h"
-#include "./src/stringlib.h"
-#include "./src/testutils.h"
-#include "./src/libinfo.h"
-#include "./src/cligui.h"
-#include "./src/depshape.h"
+#include "src/geolib/shape.h"
+#include "src/geolib/geomath.h"
+#include "src/geolib/geoshape.h"
+#include "src/geolib/geocore.h"
+#include "src/geolib/geosimpcore.h"
+#include "src/geolib/sleep.h"
+#include "src/geolib/gio.h"
+#include "src/geolib/stringlib.h"
+#include "src/geolib/testutils.h"
+#include "src/geolib/libinfo.h"
+#include "src/geolib/cligui.h"
+#include "src/geolib/depshape.h"
 
 void multi_operation_test()
 {
 	print_test_header("Simple Operations Test");
-	printf("\n[Addition]: %g", addf(1.25, 3.15));
-	printf("\n[Subtraction]: %g", subf(5.35, 7.54));
-	printf("\n[Multiplication]: %g", multf(pi(), 12));
-	printf("\n[Division]: %g\n", divi(1, 4));
-	printf("[Multi-Operation]: %g\n",
+	cltext_f("Addition", addf(1.25, 3.15), 0);
+	cltext_f("Subtraction", subf(5.35, 7.54), 0);
+	cltext_f("Multiplication", multf(pi(), 12), 0);
+	cltext_f("Division", divi(1, 4), 0);
+	cltext_f("Multi-Operation",
 			addf	(	55,
 			subf	(	23.5,
 			multf	(	32.12,
 			divi	(	14.2, 20.3
-	)))));
+	)))), 1);
 }
 
 void geom_formulas_test()
 {
 	print_test_header("Geometrical Formulas test");
-	printf("\n[Square]: %g", area_square(12));
-	printf("\n[Rectangle]: %g", area_rect(12, 24));
-	printf("\n[Circle]: %g", area_circle(16));
-	printf("\n[Triangle]: %g", area_triangle(13, 18));
-	printf("\n[Trapezoid]: %g\n", area_trapezoid(24, 12));
+	cltext_f("Square", area_square(12), 0);
+	cltext_f("Rectangle", area_rect(12, 24), 0);
+	cltext_f("Circle", area_circle(16), 0);
+	cltext_f("Triangle", area_triangle(13, 18), 0);
+	cltext_f("Trapezoid", area_trapezoid(24, 12), 1);
 }
 
 void geoshapes_test()
@@ -55,11 +55,11 @@ void geoshapes_test()
 	set_trapezoid(&trpz, 4, 10);
 
 	print_test_header("GeoShapes test");
-	printf("\n[Square]: %g", square(&sqr));
-	printf("\n[Rectangle]: %g", rectangle(&rect));
-	printf("\n[Circle]: %g", circle(&circ));
-	printf("\n[Triangle]: %g", triangle(&trig));
-	printf("\n[Trapezoid]: %g\n", trapezoid(&trpz));
+	cltext_f("Square", square(&sqr), 0);
+	cltext_f("Rectangle", rectangle(&rect), 0);
+	cltext_f("Circle", circle(&circ), 0);
+	cltext_f("Triangle", triangle(&trig), 0);
+	cltext_f("Trapezoid", trapezoid(&trpz), 1);
 }
 
 void sleep_stress_test()
@@ -80,14 +80,14 @@ void neg_and_pos_test(float val)
 	print_test_header("Negative and Positive checking test");
 	if (is_posf(val))
 	{
-		printf("\n# Positive Outputs\n");
+		print_test_subheader("Positive Outputs");
 		cltext_f("Pi", pi(), 0);
 		cltext_f("Product", multf(2.35, 4.35), 0);
 		cltext_f("Circle", area_circle(6), 1);
 	}
 	else
 	{
-		printf("\n# Negative Outputs\n");
+		print_test_subheader("Negative Outputs");
 		cltext_f("Product", multf(2.25, 5.32), 0);
 		cltext_f("Triangle", area_triangle(13.4, 7.32), 0);
 		cltext_f("Square", area_square(16), 1);
@@ -97,9 +97,9 @@ void neg_and_pos_test(float val)
 void geomformula_plus_test()
 {
 	print_test_header("Geometric Formulas+ Test");
-	printf("\n[Perimeter (Square)]: %g", perim_square(23));
-	printf("\n[Perimeter (Rectangle)]: %g", perim_rect(14, 26));
-	printf("\n[Circle Circumference]: %g\n", circ_circle(35));
+	cltext_f("Perimeter (Square)", perim_square(23), 0);
+	cltext_f("Perimeter (Rectangle)", perim_rect(14, 26), 0);
+	cltext_f("Circle Circumference", circ_circle(35), 1);
 }
 
 void geoshapes_plus_test()
@@ -113,9 +113,9 @@ void geoshapes_plus_test()
 	set_circle(&circ, 24);
 	
 	print_test_header("GeoShapes+ Test");
-	printf("\n[Perimeter (Square)]: %g", square_perim(&sqr));
-	printf("\n[Perimeter (Rectangle)]: %g", rectangle_perim(&rect));
-	printf("\n[Circle Circumference]: %g\n", circle_circ(&circ));
+	cltext_f("Perimeter (Square)", square_perim(&sqr), 0);
+	cltext_f("Perimeter (Rectangle)", rectangle_perim(&rect), 0);
+	cltext_f("Circle Circumference", circle_circ(&circ), 1);
 }
 
 void stringlib_test()
@@ -131,8 +131,8 @@ void stringlib_test()
 	}
 
 	print_test_header("String upper and lower case");
-	printf("\n[Uppercase]: %s", stringupper(str_p));
-	printf("\n[Lowercase]: %s\n", stringlower(str_p));
+	cltext_s("Uppercase", stringupper(str_p), 0);
+	cltext_s("Lowercase", stringlower(str_p), 1);
 }
 
 void gio_tests()
@@ -193,6 +193,57 @@ void dep_shapes_test()
 	cltext_f("Space Diagonal", cube_sdiag(&cube), 1);
 }
 
+void run_tests(unsigned int def_ms)
+{
+	#ifdef TEST_MULTIOPERATION
+	multi_operation_test();		print_test_passed("Simple Operation Test");				nsleep(def_ms);
+	#endif
+
+	#ifdef TEST_GEOMFORMS	
+	geom_formulas_test();		print_test_passed("Geometric Formulas");				nsleep(def_ms);
+	#endif	
+	
+	#ifdef TEST_GEOSHAPES
+	geoshapes_test();			print_test_passed("GeoShapes Test");					nsleep(def_ms);
+	#endif	
+	
+	#ifdef TEST_NEGANDPOS
+	neg_and_pos_test(2.3f);		print_test_passed("Negative and Positive outputs");		nsleep(def_ms);
+	#endif	
+
+	#ifdef TEST_SLEEP
+	sleep_stress_test();		print_test_passed("Sleep Stress");						nsleep(def_ms);
+	#endif
+	
+	#ifdef TEST_GEOMFORMP
+	geomformula_plus_test();	print_test_passed("Geometric Formulas+");				nsleep(def_ms);
+	#endif
+
+	#ifdef TEST_GEOSHAPEP
+	geoshapes_plus_test();		print_test_passed("GeoShapes+");						nsleep(def_ms);
+	#endif
+
+	#ifdef TEST_LIBSTRING
+	stringlib_test();			print_test_passed("StringLib");							nsleep(def_ms);
+	#endif
+
+	#ifdef TEST_GIO
+	gio_tests();				print_test_passed("gIO Test");							nsleep(def_ms);
+	#endif
+
+	#ifdef TEST_INFOLIB
+	libinfo_test();				print_test_passed("\"libinfo\" Test");					nsleep(def_ms);
+	#endif
+
+	#ifdef TEST_CLIGUI
+	cligui_test();				print_test_passed("Command Line GUI Test");				nsleep(def_ms);
+	#endif
+
+	#ifdef TEST_DEPSHAPES
+	dep_shapes_test();			print_test_passed("DEP / 3D Shapes Test");				nsleep(def_ms);
+	#endif
+}
+
 int main(int argc, char **argv)
 {
 	unsigned def_ms = 0;
@@ -208,33 +259,9 @@ int main(int argc, char **argv)
 	#endif
 
 	printf("\n> Running tests...\n");
-	
-	#ifdef TEST_MULTIOPERATION
-	multi_operation_test();		print_test_passed("Simple Operation Test");				nsleep(def_ms);
-	#elif TEST_GEOMFORMS
-	geom_formulas_test();		print_test_passed("Geometric Formulas");				nsleep(def_ms);
-	#elif TEST_GEOSHAPES
-	geoshapes_test();			print_test_passed("GeoShapes Test");					nsleep(def_ms);
-	#elif TEST_NEGANDPOS
-	neg_and_pos_test(2.3f);		print_test_passed("Negative and Positive outputs");		nsleep(def_ms);
-	#elif TEST_SLEEP
-	sleep_stress_test();		print_test_passed("Sleep Stress");						nsleep(def_ms);
-	#elif TEST_GEOMFORMP
-	geomformula_plus_test();	print_test_passed("Geometric Formulas+");				nsleep(def_ms);
-	#elif TEST_GEOSHAPEP
-	geoshapes_plus_test();		print_test_passed("GeoShapes+");						nsleep(def_ms);
-	#elif TEST_LIBSTRING
-	stringlib_test();			print_test_passed("StringLib");							nsleep(def_ms);
-	#elif TEST_GIO
-	gio_tests();				print_test_passed("gIO Test");							nsleep(def_ms);
-	#elif TEST_INFOLIB
-	libinfo_test();				print_test_passed("\"libinfo\" Test");					nsleep(def_ms);
-	#elif TEST_CLIGUI
-	cligui_test();				print_test_passed("Command Line GUI Test");				nsleep(def_ms);
-	#elif TEST_DEPSHAPES
-	dep_shapes_test();			print_test_passed("DEP / 3D Shapes Test");				nsleep(def_ms);
-	#endif
-	
+
+	run_tests(def_ms);
+
 	print_all_test_passed();
 
 	return 0;
