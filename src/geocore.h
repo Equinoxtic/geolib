@@ -12,5 +12,6 @@ int expo_n(int n, uint32_t expo);
 float expo_f(float n, uint32_t pwr);
 float pi();
 double pi_d();
+// float gsqrt(float n);
 
 #endif // GEOCORE_H_

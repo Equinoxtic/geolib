@@ -15,4 +15,30 @@ typedef struct {
 	float height;
 } DEP_Triangle;
 
+typedef struct {
+	float length;
+	float width;
+	float perim;
+	float area;
+	float diag;
+} DEP_Rectangle;
+
+typedef struct {
+	float _side_a;
+	float _side_b;
+	float _paralg_height;
+	float perim;
+	float area;
+	float height;
+	float base;
+} Parallelogram;
+
+typedef struct {
+	float side;
+	float area;
+	float volume;
+	float edge;
+	float s_diag;
+} Cube;
+
 #endif // DEPSHAPE_H_

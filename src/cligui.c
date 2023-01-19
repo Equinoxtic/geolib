@@ -6,7 +6,7 @@
 
 void header_create(char *_name, int s_name)
 {
-	char fname[64];
+	char fname[256];
 
 	if (s_name == 1)
 		strncpy(fname, _name, sizeof(fname));

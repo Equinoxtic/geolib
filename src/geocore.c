@@ -1,4 +1,5 @@
 #include "./geocore.h"
+#include <math.h>
 
 bool is_posn(int n)
 {
@@ -65,3 +66,20 @@ double pi_d()
 {
 	return 3.14159265359;
 }
+
+/* Deprecated, use regular sqrt instead
+float gsqrt(float n)
+{
+	float l = 0,
+		  m;
+	do {
+		m = (l + n) / 2;
+		if (m * m < 2)
+			l = m;
+		else
+			n = m;
+	} while (fabs(m * m - 2) > 1e-10);
+	
+	return m;
+}
+*/

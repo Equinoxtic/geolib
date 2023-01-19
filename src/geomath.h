@@ -20,4 +20,14 @@ float perim_dep_rect(float l, float w);
 float area_dep_rect(float l, float w);
 float diag_dep_rect(float l, float w);
 
+float perim_paralgram(float a, float b);
+float area_paralgram(float b, float h);
+float height_paralgram(float area, float b);
+float base_paralgram(float area, float h);
+
+float area_cube(float a);
+float volume_cube(float a);
+float edge_cube(float volume);
+float sdiag_cube(float a);
+
 #endif // GEOMATH_H_

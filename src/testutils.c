@@ -10,6 +10,11 @@ void print_test_header(const char* s_test)
 	#endif
 }
 
+void print_test_subheader(const char* s_test)
+{
+	printf("\n# %s\n", s_test);
+}
+
 void print_test_passed(const char* s_test)
 {
 	printf("(*) - Test Passed: %s\n", s_test);
