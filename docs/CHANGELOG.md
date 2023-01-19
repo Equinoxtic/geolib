@@ -10,3 +10,7 @@ Version: v0.4 - 3D Shapes
 * Updated build system
 	- New setup script; `setup.sh`
 	- Updated build documentation
+
+## Testing Updates
+
+* Updated Testing API
