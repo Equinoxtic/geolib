@@ -33,9 +33,9 @@ float circ_circle(float r) {
 		return (multf(2, pi()) * r);
 }
 
-float area_triangle(float b, float h) {
-	if (is_posf(b) && is_posf(h))
-		return (divi(1, 2) * multf(b, h));
+float area_triangle(float area, float b) {
+	if (is_posf(area) && is_posf(b))
+		return (multf(2, divi(area, b)));
 }
 
 float area_trapezoid(float b, float h) {
@@ -113,4 +113,19 @@ float edge_cube(float volume) {
 float sdiag_cube(float a) {
 	if (is_posf(a))
 		return (multf(a, sqrt(3)));
+}
+
+float area_trpz(float a, float b, float h) {
+	if (is_posf(a) && is_posf(b) && is_posf(h))
+		return (multf(multf(divi(1, 2), addf(a, b)), h));
+}
+
+float height_trpz(float area, float a, float b) {
+	if (is_posf(area) && is_posf(a) && is_posf(b))
+		return (divi(multf(area, 2), addf(a, b)));
+}
+
+float base_trpz(float area, float h, float a) {
+	if (is_posf(area) && is_posf(h) && is_posf(a))
+		return (subf(multf(2, divi(area, h)), a));
 }

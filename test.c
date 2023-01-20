@@ -2,18 +2,18 @@
 #include<stdlib.h>
 #include<string.h>
 
-#include "src/geolib/shape.h"
-#include "src/geolib/geomath.h"
-#include "src/geolib/geoshape.h"
-#include "src/geolib/geocore.h"
-#include "src/geolib/geosimpcore.h"
-#include "src/geolib/sleep.h"
-#include "src/geolib/gio.h"
-#include "src/geolib/stringlib.h"
-#include "src/geolib/testutils.h"
-#include "src/geolib/libinfo.h"
-#include "src/geolib/cligui.h"
-#include "src/geolib/depshape.h"
+#include "./src/shape.h"
+#include "./src/geomath.h"
+#include "./src/geoshape.h"
+#include "./src/geocore.h"
+#include "./src/geosimpcore.h"
+#include "./src/sleep.h"
+#include "./src/gio.h"
+#include "./src/stringlib.h"
+#include "./src/testutils.h"
+#include "./src/libinfo.h"
+#include "./src/cligui.h"
+#include "./src/depshape.h"
 
 void multi_operation_test()
 {
@@ -173,24 +173,51 @@ void dep_shapes_test()
 	DEP_Triangle tri;
 	DEP_Rectangle rect;
 	Parallelogram para;
+	Trapezium trpz;
 
 	print_test_header("DEP (3D) Shapes Test");
 
 	// Cube
 	set_cube(&cube, 4, 43);
-
-	// Triangle
-	
-	// Rectangle
-	set_dep_rectangle(&rect, 15, 10);
-
-	// Parallelogram
 	
 	print_test_subheader("Cube");
 	cltext_f("Area", cube_area(&cube), 0);
 	cltext_f("Volume", cube_volume(&cube), 0);
 	cltext_f("Edge", cube_edge(&cube), 0);
 	cltext_f("Space Diagonal", cube_sdiag(&cube), 1);
+	
+	// Triangle
+	set_dep_triangle(&tri, 2, 5, 6);
+
+	print_test_subheader("Triangle");
+	cltext_f("Perimeter", dep_triangle_perim(&tri), 0);
+	cltext_f("Area", dep_triangle_area(&tri), 0);
+	cltext_f("Height", dep_triangle_height(&tri), 1);
+	
+	// Rectangle
+	set_dep_rectangle(&rect, 15, 10);
+
+	print_test_subheader("Rectangle");
+	cltext_f("Perimeter", dep_rectangle_perim(&rect), 0);
+	cltext_f("Area", dep_rectangle_area(&rect), 0);
+	cltext_f("Height", dep_rectangle_diag(&rect), 1);
+
+	// Parallelogram
+	set_parallelg(&para, 20, 21, 9);
+
+	print_test_subheader("Parallelogram");
+	cltext_f("Perimeter", parallelg_perim(&para), 0);
+	cltext_f("Area", parallelg_area(&para), 0);
+	cltext_f("Height", parallelg_height(&para), 0);
+	cltext_f("Base", parallelg_base(&para), 1);
+
+	// Trapezium
+	set_trapezium(&trpz, 13, 18, 24);
+
+	print_test_subheader("Trapezium");
+	cltext_f("Area", trapezium_area(&trpz), 0);
+	cltext_f("Height", trapezium_height(&trpz), 0);
+	cltext_f("Base", trapezium_height(&trpz), 1);
 }
 
 void run_tests(unsigned int def_ms)

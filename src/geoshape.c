@@ -205,6 +205,19 @@ void set_cube(Cube *cube,
 	}
 }
 
+void set_trapezium(Trapezium *trpz,
+				   float sidea,
+				   float sideb,
+				   float distance)
+{
+	if (is_posf(sidea) && is_posf(sideb) && is_posf(distance))
+	{
+		trpz->side_a = sidea;
+		trpz->side_b = sideb;
+		trpz->dist = distance;
+	}
+}
+
 float dep_triangle_perim(DEP_Triangle *dtriangle)
 {
 	float res = 0;
@@ -234,11 +247,11 @@ float dep_triangle_height(DEP_Triangle *dtriangle)
 	float res = 0;
 	float new_area = 0;
 
-	if (is_posf(dtriangle->area) && is_posf(dtriangle->alti) && is_posf(dtriangle->base)) {
+	if (is_posf(dtriangle->alti) && is_posf(dtriangle->base)) {
 		if (dtriangle->area == 0)
 			new_area = area_dep_triangle(dtriangle->alti, dtriangle->height);
 		else
-			new_area = area_dep_triangle(dtriangle->alti, dtriangle->height);
+			new_area = dtriangle->area;
 	}
 
 	if (is_posf(new_area) && is_posf(dtriangle->base))
@@ -314,11 +327,11 @@ float parallelg_height(Parallelogram *parallg)
 {
 	float res = 0;
 	float new_area = 0;
-	if (is_posf(parallg->area) && is_posf(parallg->base) && is_posf(parallg->height)) {
+	if (is_posf(parallg->base) && is_posf(parallg->height)) {
 		if (parallg->area == 0)
 			new_area = area_paralgram(parallg->base, parallg->height);
 		else
-			new_area = area_paralgram(parallg->base, parallg->height);
+			new_area = parallg->area;
 	}
 	
 	if (is_posf(new_area) && is_posf(parallg->base))
@@ -333,11 +346,11 @@ float parallelg_base(Parallelogram *parallg)
 {
 	float res = 0;
 	float new_area = 0;
-	if (is_posf(parallg->area) && is_posf(parallg->base) && is_posf(parallg->height)) {
+	if (is_posf(parallg->base) && is_posf(parallg->height)) {
 		if (parallg->area == 0)
 			new_area = area_paralgram(parallg->base, parallg->height);
 		else
-			new_area = area_paralgram(parallg->base, parallg->height);
+			new_area = parallg->area;
 	}
 
 	if (is_posf(new_area) && is_posf(parallg->height))
@@ -393,5 +406,59 @@ float cube_sdiag(Cube *cube)
 	
 	cube->side = res;
 	
+	return res;
+}
+
+float trapezium_area(Trapezium *trpz)
+{
+	float res = 0;
+
+	if (is_posf(trpz->side_a) && 
+		is_posf(trpz->side_b) && 
+		is_posf(trpz->dist))
+	{
+		res = area_trpz(trpz->side_a, trpz->side_b, trpz->dist);
+	}
+
+	trpz->area = res;
+
+	return res;
+}
+
+float trapezium_height(Trapezium *trpz)
+{
+	float res = 0;
+	float new_area = 0;
+	if (is_posf(trpz->side_a) && is_posf(trpz->side_b) && is_posf(trpz->dist)) {
+		if (trpz->area == 0)
+			new_area = area_trpz(trpz->side_a, trpz->side_b, trpz->dist);
+		else
+			new_area = trpz->area;
+	}
+
+	if (is_posf(new_area) && is_posf(trpz->side_a) && is_posf(trpz->side_b))
+		res = height_trpz(new_area, trpz->side_a, trpz->side_b);
+
+	trpz->height = res;
+
+	return res;
+}
+
+float trapezium_base(Trapezium *trpz)
+{
+	float res = 0;
+	float new_area = 0;
+	if (is_posf(trpz->side_a) && is_posf(trpz->side_b) && is_posf(trpz->dist)) {
+		if (trpz->area == 0)
+			new_area = area_trpz(trpz->side_a, trpz->side_b, trpz->dist);
+		else
+			new_area = area_trpz(trpz->side_a, trpz->side_b, trpz->dist);
+	}
+
+	if (is_posf(new_area) && is_posf(trpz->dist) && is_posf(trpz->side_a))
+		res = base_trpz(new_area, trpz->dist, trpz->side_a);
+
+	trpz->base = res;
+
 	return res;
 }
