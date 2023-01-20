@@ -30,4 +30,8 @@ float volume_cube(float a);
 float edge_cube(float volume);
 float sdiag_cube(float a);
 
+float area_trpz(float a, float b, float h);
+float height_trpz(float area, float a, float b);
+float base_trpz(float area, float h, float a);
+
 #endif // GEOMATH_H_

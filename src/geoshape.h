@@ -52,4 +52,12 @@ float cube_volume(Cube *cube);
 float cube_edge(Cube *cube);
 float cube_sdiag(Cube *cube);
 
+void set_trapezium(Trapezium *trpz,
+				   float sidea,
+				   float sideb,
+				   float distance);
+float trapezium_area(Trapezium *trpz);
+float trapezium_height(Trapezium *trpz);
+float trapezium_base(Trapezium *trpz);
+
 #endif // GEOSHAPE_H_
