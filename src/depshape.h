@@ -41,4 +41,13 @@ typedef struct {
 	float s_diag;
 } Cube;
 
+typedef struct {
+	float side_a;
+	float side_b;
+	float dist;
+	float area;
+	float height;
+	float base;
+} Trapezium;
+
 #endif // DEPSHAPE_H_
