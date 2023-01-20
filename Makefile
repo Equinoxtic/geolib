@@ -18,7 +18,7 @@
 
 GCC = gcc
 
-SRCDIR = src/include/
+SRCDIR = src/geolib/
 
 SRC =	$(SRCDIR)/geocore.c 			\
 		$(SRCDIR)/geosimpcore.c 		\
