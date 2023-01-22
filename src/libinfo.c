@@ -11,14 +11,14 @@ char* get_name()
 char* get_version()
 {
 	char* gitf;
-	gitf = read_file("gitv.txt");
+	gitf = read_file("config/gitv.txt");
 	return gitf; free(gitf);
 }
 
 char* get_release()
 {
 	char* gitfile;
-	gitfile = read_file("gitv.txt");
+	gitfile = read_file("config/gitv.txt");
 	return gitfile; free(gitfile);
 }
 
